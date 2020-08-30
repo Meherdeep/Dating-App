@@ -1,20 +1,16 @@
-import 'dart:io';
-
-import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:dating_app/helper/style.dart';
+import 'package:flutter/material.dart';
 
-class YourInfo extends StatefulWidget {
+
+class YourBio extends StatefulWidget {
   final Function onAddButtonTapped;
-  YourInfo(this.onAddButtonTapped);
+  YourBio(this.onAddButtonTapped);
   @override
-  _YourInfoState createState() => _YourInfoState();
+  _YourBioState createState() => _YourBioState();
 }
 
-class _YourInfoState extends State<YourInfo> {
-  File _imageFile;
-  final ImagePicker _picker = ImagePicker();
-  bool isImageSelected = false;
+class _YourBioState extends State<YourBio> {
+  TextEditingController _bio = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -34,7 +30,7 @@ class _YourInfoState extends State<YourInfo> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('02', style: signUpHeaderTextStyle.copyWith(fontSize: 40),),
+                  Text('03', style: signUpHeaderTextStyle.copyWith(fontSize: 40),),
                   Text('Your profile', style: signUpHeaderTextStyle.copyWith(fontSize: 25)),
                   SizedBox(height: 20),
                   
@@ -43,19 +39,29 @@ class _YourInfoState extends State<YourInfo> {
             ),
             Padding(
               padding: EdgeInsets.only(left: 20),
-              child: Text('Add your image', style: dilutedText), 
+              child: Text('Add your bio', style: dilutedText), 
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.08,
+              height: MediaQuery.of(context).size.height*0.1,
             ),
-            Container(
+            Center(
+              child: Container(
               height: MediaQuery.of(context).size.height*0.6,
-              child: Center(
-                child: FlatButton(
-                  onPressed: loadImageFromGallery, 
-                  child: isImageSelected? Image.file(_imageFile): Image.asset('assets/default_profile_pic.jpg'),
-                )
+              width: MediaQuery.of(context).size.width*0.8,
+              child: TextField(
+                controller: _bio,
+                minLines: 10,
+                maxLines: 15,
+                decoration: InputDecoration(
+                  hintText: 'Add your bio here...',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 1,
+                    )
+                  )
+                ),
               ),
+            ),
             ),
             Padding(
             padding: EdgeInsets.all(10),
@@ -94,13 +100,5 @@ class _YourInfoState extends State<YourInfo> {
       ),
       
     );
-  }
-
-  void loadImageFromGallery() async{
-    var image = await _picker.getImage(source: ImageSource.gallery);
-    setState(() {
-      _imageFile = File(image.path);
-      isImageSelected = true;
-    });
   }
 }

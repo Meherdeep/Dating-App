@@ -1,9 +1,12 @@
 import 'package:dating_app/helper/style.dart';
+import 'package:dating_app/widgets/your_info.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class YourDetails extends StatefulWidget {
+  final Function onAddButtonTapped;
+  YourDetails(this.onAddButtonTapped);
   @override
   _YourDetailsState createState() => _YourDetailsState();
 }
@@ -36,6 +39,8 @@ class _YourDetailsState extends State<YourDetails> {
     isSelected = 0;
     super.dispose();
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -112,11 +117,6 @@ class _YourDetailsState extends State<YourDetails> {
                           });
                           }
                         ),
-                        // SvgPicture.asset(
-                        //   'assets/male.svg',
-                        //   color: isMale? null: Colors.black54,
-                        //   height: MediaQuery.of(context).size.height*0.1,
-                        // )
                         Image.asset(
                           'assets/male.png',
                           color: isMale? null: Colors.black54,
@@ -398,7 +398,9 @@ class _YourDetailsState extends State<YourDetails> {
             width: MediaQuery.of(context).size.width*0.3,
             color: Color(0xFFEF959F),
             child: MaterialButton(
-            onPressed: null,
+            onPressed: (){
+              widget.onAddButtonTapped(1);
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -427,4 +429,6 @@ class _YourDetailsState extends State<YourDetails> {
     );   
     
     }
+
+    
 }
