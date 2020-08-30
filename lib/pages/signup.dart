@@ -1,6 +1,7 @@
 import 'package:dating_app/widgets/your_bio.dart';
 import 'package:dating_app/widgets/your_details.dart';
 import 'package:dating_app/widgets/your_info.dart';
+import 'package:dating_app/widgets/your_match.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -25,7 +26,8 @@ class _SignUpState extends State<SignUp> {
         children: <Widget>[
           YourDetails(onAddButtonTapped),
           YourInfo(onAddButtonTapped),
-          YourBio(onAddButtonTapped)
+          YourBio(onAddButtonTapped),
+          YourMatch()
         ],
       ),
       

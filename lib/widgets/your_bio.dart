@@ -1,3 +1,4 @@
+import 'package:dating_app/data/bio.dart';
 import 'package:dating_app/helper/style.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +73,8 @@ class _YourBioState extends State<YourBio> {
             color: Color(0xFFEF959F),
             child: MaterialButton(
             onPressed: (){
-              widget.onAddButtonTapped(2);
+              bioText = _bio.text;
+              widget.onAddButtonTapped(3);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

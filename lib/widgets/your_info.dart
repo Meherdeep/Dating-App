@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:dating_app/helper/style.dart';
+import '../data/profile_pic.dart';
 
 class YourInfo extends StatefulWidget {
   final Function onAddButtonTapped;
@@ -100,6 +101,7 @@ class _YourInfoState extends State<YourInfo> {
     var image = await _picker.getImage(source: ImageSource.gallery);
     setState(() {
       _imageFile = File(image.path);
+      profilePic = image.path;
       isImageSelected = true;
     });
   }

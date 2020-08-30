@@ -32,6 +32,8 @@ dependencies:
   flutter_svg: ^0.18.1
   flutter_staggered_grid_view: "^0.3.2"
   image_picker: ^0.6.7+7
+  fluid_bottom_nav_bar: ^1.1.1
+  curved_navigation_bar: ^0.3.3
 
 
 
@@ -70,6 +72,10 @@ flutter:
     - assets/interest8.jpg
     - assets/male.png
     - assets/default_profile_pic.jpg
+    - assets/couple.jpg
+    - assets/message.svg
+    - assets/user.svg
+    - assets/magnifying-glass.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

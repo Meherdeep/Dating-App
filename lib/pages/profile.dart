@@ -1,18 +1,22 @@
-import 'package:dating_app/helper/style.dart';
-import 'package:dating_app/pages/match_window.dart';
-import 'package:dating_app/pages/profile.dart';
-import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'dart:io';
 
-class HomePage extends StatefulWidget {
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dating_app/data/bio.dart';
+import 'package:dating_app/data/profile_pic.dart';
+import 'package:dating_app/helper/style.dart';
+import 'package:dating_app/pages/homepage.dart';
+import 'package:dating_app/pages/match_window.dart';
+import 'package:flutter/material.dart';
+
+class UserProfile extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _UserProfileState createState() => _UserProfileState();
 }
 
-class _HomePageState extends State<HomePage> {
-  GlobalKey _bottomNavigationKey = GlobalKey();
+class _UserProfileState extends State<UserProfile> {
   int _page = 0;
-
+  GlobalKey _bottomNavigationKey = GlobalKey();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +30,38 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text('Discover', style: signUpHeaderTextStyle.copyWith(color: Colors.white, fontSize: 40) ,),
+              child: Text('Profile', style: signUpHeaderTextStyle.copyWith(color: Colors.white, fontSize: 40) ,),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height*0.06,
+            ),
+            Center(
+              child: CircleAvatar(
+                radius: 100,
+                backgroundImage: FileImage(File(profilePic)),
+                //child: Image.file(File(profilePic), fit: BoxFit.contain,),
+              )
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height*0.06,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  Text('Your bio', style: dilutedText.copyWith(color: Colors.white70)),
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.2,
+                    child: Text(bioText, style: TextStyle(color: Colors.white),),
+                  )
+                ],      
+              ),
             )
           ],
-        ),
+        ) 
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        index: 1,
+        index: 0,
         backgroundColor: Colors.transparent,
         key: _bottomNavigationKey,
         items: <Widget>[
@@ -72,5 +101,4 @@ class _HomePageState extends State<HomePage> {
         ),
     );
   }
-  
 }

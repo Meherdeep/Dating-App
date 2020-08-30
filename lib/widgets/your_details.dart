@@ -1,5 +1,4 @@
 import 'package:dating_app/helper/style.dart';
-import 'package:dating_app/widgets/your_info.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

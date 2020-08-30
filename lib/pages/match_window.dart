@@ -1,40 +1,26 @@
-import 'package:dating_app/helper/style.dart';
-import 'package:dating_app/pages/match_window.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:dating_app/pages/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-class HomePage extends StatefulWidget {
+import 'homepage.dart';
+
+class MatchesWindow extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _MatchesWindowState createState() => _MatchesWindowState();
 }
 
-class _HomePageState extends State<HomePage> {
-  GlobalKey _bottomNavigationKey = GlobalKey();
+class _MatchesWindowState extends State<MatchesWindow> {
   int _page = 0;
-
+  GlobalKey _bottomNavigationKey = GlobalKey();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFFDBD6),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height*0.04,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text('Discover', style: signUpHeaderTextStyle.copyWith(color: Colors.white, fontSize: 40) ,),
-            )
-          ],
-        ),
-      ),
       bottomNavigationBar: CurvedNavigationBar(
-        index: 1,
+        index: 2,
         backgroundColor: Colors.transparent,
-        key: _bottomNavigationKey,
+        key: _bottomNavigationKey,       
         items: <Widget>[
           Icon(Icons.person, size: 30),
           Icon(Icons.search, size: 30),
@@ -72,5 +58,4 @@ class _HomePageState extends State<HomePage> {
         ),
     );
   }
-  
 }
