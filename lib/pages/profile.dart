@@ -43,19 +43,20 @@ class _UserProfileState extends State<UserProfile> {
               )
             ),
             SizedBox(
+              height: MediaQuery.of(context).size.height*0.02,
+            ),
+            Center(
+              child: Text(userName, style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
+            ),
+            SizedBox(
               height: MediaQuery.of(context).size.height*0.06,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  Text('Your bio', style: dilutedText.copyWith(color: Colors.white70)),
-                  Container(
+              child: Container(
                     height: MediaQuery.of(context).size.height*0.2,
-                    child: Text(bioText, style: TextStyle(color: Colors.white),),
+                    child: Text(bioText, style: TextStyle(color: Colors.white, fontSize: 20 ),),
                   )
-                ],      
-              ),
             )
           ],
         ) 

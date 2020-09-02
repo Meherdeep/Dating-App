@@ -1,3 +1,5 @@
+import 'package:dating_app/data/bio.dart';
+import 'package:dating_app/data/gender.dart';
 import 'package:dating_app/helper/style.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -92,6 +94,7 @@ class _YourDetailsState extends State<YourDetails> {
                             _gen = value;
                             isFemale = true;
                             isMale = false;
+                            gender = 'Female';
                           });
                           }
                         ),
@@ -113,6 +116,7 @@ class _YourDetailsState extends State<YourDetails> {
                             _gen = value;
                             isFemale = false;
                             isMale = true;
+                            gender = 'Male';
                           });
                           }
                         ),
@@ -398,6 +402,7 @@ class _YourDetailsState extends State<YourDetails> {
             color: Color(0xFFEF959F),
             child: MaterialButton(
             onPressed: (){
+              userName = _name.text;
               widget.onAddButtonTapped(1);
             },
             child: Row(

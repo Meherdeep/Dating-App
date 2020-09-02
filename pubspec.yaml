@@ -34,6 +34,7 @@ dependencies:
   image_picker: ^0.6.7+7
   fluid_bottom_nav_bar: ^1.1.1
   curved_navigation_bar: ^0.3.3
+  tinder_card: ^0.1.1
 
 
 
@@ -76,6 +77,27 @@ flutter:
     - assets/message.svg
     - assets/user.svg
     - assets/magnifying-glass.svg
+    - assets/male/1.jpg
+    - assets/male/2.jpg
+    - assets/male/3.jpg
+    - assets/male/4.jpg
+    - assets/male/5.jpg
+    - assets/male/6.jpg
+    - assets/male/7.jpg
+    - assets/male/8.jpg
+    - assets/male/9.jpg
+    - assets/male/10.jpg
+    - assets/female/1.jpg
+    - assets/female/2.jpg
+    - assets/female/3.jpg
+    - assets/female/4.jpg
+    - assets/female/5.jpg
+    - assets/female/6.jpg
+    - assets/female/7.jpg
+    - assets/female/8.jpg
+    - assets/female/9.jpg
+    - assets/female/10.jpg
+    - assets/female/11.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -36,14 +36,12 @@ class _MatchesWindowState extends State<MatchesWindow> {
                   MaterialPageRoute(builder: (context)=>UserProfile())
                 );
                 break;
-              
               case 1:
                 Navigator.push(
                   context, 
                   MaterialPageRoute(builder: (context)=>HomePage())
                 );
                 break;
-              
               case 2:
                 Navigator.push(
                   context, 
