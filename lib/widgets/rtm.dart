@@ -121,29 +121,30 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
                           hintStyle: TextStyle(color: Colors.white70),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.white70, width: 2),
+                            borderSide: BorderSide(color: Colors.white70, width: 3),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.white70, width: 2),
+                            borderSide: BorderSide(color: Colors.white70, width: 3),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.white70, width: 2),
+                            borderSide: BorderSide(color: Colors.white70, width: 3),
                           ), 
                         ),
                       ),
                     ),
                     Container(
+                      padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(40)),
+                        borderRadius: BorderRadius.all(Radius.circular(60)),
                         border: Border.all(
                           color: Colors.white70, 
-                          width: 2,
+                          width: 3,
                         )
                       ),
                       child: IconButton(
-                        icon: Icon(Icons.send, color: Colors.white70), 
+                        icon: Icon(Icons.send, color: Colors.white), 
                         onPressed: _toggleSendChannelMessage, 
                       ),
                     )

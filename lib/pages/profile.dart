@@ -53,10 +53,12 @@ class _UserProfileState extends State<UserProfile> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                    height: MediaQuery.of(context).size.height*0.2,
-                    child: Text(bioText, style: TextStyle(color: Colors.white, fontSize: 20 ),),
-                  )
+              child: Center(
+                child: Container(
+                      height: MediaQuery.of(context).size.height*0.2,
+                      child: Text(bioText, style: TextStyle(color: Colors.white, fontSize: 20 ),),
+                    ),
+              )
             )
           ],
         ) 

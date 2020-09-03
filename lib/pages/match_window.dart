@@ -22,6 +22,11 @@ class _MatchesWindowState extends State<MatchesWindow> {
   List<String> maleName = ['Zayn Malik', 'T\'Challa','Rohan','Mark', 'Elliot', 'Meher'];
   Random random = Random();
 
+  @override
+  void dispose() { 
+    selectedPartner.clear();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
