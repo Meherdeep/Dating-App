@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:dating_app/data/gender.dart';
+import 'package:dating_app/data/selected_partner.dart';
 import 'package:dating_app/helper/profile_class.dart';
 import 'package:dating_app/helper/style.dart';
 import 'package:dating_app/pages/match_window.dart';
@@ -15,7 +18,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   GlobalKey _bottomNavigationKey = GlobalKey();
-  int _page = 0;
+  int _page = 1;
+  TCardController _controller = TCardController();
 
   static List<String> maleImages = [
         'assets/male/1.jpg',
@@ -62,9 +66,41 @@ class _HomePageState extends State<HomePage> {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16.0),
-        child: gender == 'Male'
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            gender == 'Male'
                 ? Image.asset(femaleImages[index])
                 : Image.asset(maleImages[index]),
+            Positioned(
+              bottom: 20,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: window.physicalSize.width*0.1
+                  ),
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.red,
+                    child: Icon(Icons.cancel, color: Colors.white,),
+                  ),
+                  SizedBox(
+                    width: window.physicalSize.width*0.15
+                  ),
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.red,
+                    child: Icon(Icons.favorite, color: Colors.white),
+                  ),
+                  SizedBox(
+                    width: window.physicalSize.width*0.1
+                  ),
+                ],
+              )
+            )
+          ],
+        )
       )
       );
     }
@@ -85,9 +121,36 @@ class _HomePageState extends State<HomePage> {
               child: Text('Discover', style: signUpHeaderTextStyle.copyWith(color: Colors.white, fontSize: 40) ,),
             ),
             Expanded(
-                          child: TCard(
+              child: TCard(
                 cards: cards,
-                size: Size(MediaQuery.of(context).size.height, MediaQuery.of(context).size.width*0.8)
+                size: Size(MediaQuery.of(context).size.height, MediaQuery.of(context).size.width*0.8),
+                controller: _controller,
+                onForward: (index, info){
+                  if(info.direction == SwipDirection.Right){
+                    setState(() {
+                      gender =='Male' ? selectedPartner.add(femaleImages[index]) : selectedPartner.add(maleImages[index]);
+                    });
+                    print('Like');
+                  }
+                  else{
+                    print('Dislike');
+                  }
+                },
+                
+                onEnd: (){
+                  print('End');
+                  Center(
+                    child: Column(
+                      children: [
+                        Image.asset('assets/1.gif'),
+                        Text(
+                          'No other user found that matches your interest', 
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        )
+                      ],
+                    )
+                  );
+                },
               ),
             )
           ],

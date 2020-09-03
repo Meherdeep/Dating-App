@@ -35,6 +35,9 @@ dependencies:
   fluid_bottom_nav_bar: ^1.1.1
   curved_navigation_bar: ^0.3.3
   tcard: ^1.2.2
+  agora_rtc_engine: 1.0.5
+  permission_handler: ^5.0.1
+  agora_rtm: ^0.9.10
 
 
 
