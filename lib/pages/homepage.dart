@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:dating_app/data/gender.dart';
 import 'package:dating_app/data/selected_partner.dart';
-import 'package:dating_app/helper/profile_class.dart';
 import 'package:dating_app/helper/style.dart';
 import 'package:dating_app/pages/match_window.dart';
 import 'package:dating_app/pages/profile.dart';

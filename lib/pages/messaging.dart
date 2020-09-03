@@ -1,6 +1,8 @@
 import 'package:dating_app/data/bio.dart';
+import 'package:dating_app/pages/video_call.dart';
 import 'package:dating_app/widgets/rtm.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class MessagingWindow extends StatefulWidget {
   final String userName;
@@ -23,7 +25,15 @@ class _MessagingWindowState extends State<MessagingWindow> {
               Icons.videocam, 
               color: Colors.white
             ), 
-            onPressed: null
+            onPressed: () async{
+              print('${widget.userName}$userName');
+              await _handleCameraAndMic(Permission.camera);
+              await _handleCameraAndMic(Permission.microphone);
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context)=>CallPage('${widget.userName} & $userName','${widget.userName}$userName' ))
+              );
+            }
           )
         ],
         elevation: 0,
@@ -45,5 +55,10 @@ class _MessagingWindowState extends State<MessagingWindow> {
         ),
       ),
     );
+  }
+
+  Future<void> _handleCameraAndMic(Permission permission) async {
+    final status = await permission.request();
+    print(status);
   }
 }
